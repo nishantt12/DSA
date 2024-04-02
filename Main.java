@@ -3,9 +3,55 @@ import java.util.*;
 public class Main {
 
 	public static void main(String[] args) {
-//		binaryHeap();
-		heapSort();
+		hashMap();
+	}
 
+	private static void hashMap(){
+		HashMap<String, String> hashMap = new HashMap<>();
+
+		hashMap.put("Nishu", "Nishant");
+		hashMap.put("Mannu", "Rishabh");
+		hashMap.put("Bubu", "Shreena");
+
+		print(hashMap.get("Bubu"));
+		print(hashMap.get("Nishu"));
+	}
+
+	private static void RedBlackBST() {
+		RedBlackBST<MyInteger, Integer> bst = new RedBlackBST<>();
+
+		bst.put(new MyInteger(0), 0);
+		bst.put(new MyInteger(1), 1);
+		bst.put(new MyInteger(2), 2);
+		bst.put(new MyInteger(3), 3);
+		bst.put(new MyInteger(4), 4);
+		bst.put(new MyInteger(5), 5);
+		bst.put(new MyInteger(6), 6);
+
+//		System.out.println(bst.get(new MyInteger(2)));
+//		System.out.println(bst.get(new MyInteger(5)));
+//		System.out.println(bst.get(new MyInteger(9)));
+		bst.inOrder();
+		System.out.println("Depth RED Black: "+bst.depth());
+	}
+
+
+	private static void BST() {
+		BST<MyInteger, Integer> bst = new BST<>();
+
+		bst.put(new MyInteger(0), 0);
+		bst.put(new MyInteger(1), 1);
+		bst.put(new MyInteger(2), 2);
+		bst.put(new MyInteger(3), 3);
+		bst.put(new MyInteger(4), 4);
+		bst.put(new MyInteger(5), 5);
+		bst.put(new MyInteger(6), 6);
+
+//		System.out.println(bst.get(new MyInteger(2)));
+//		System.out.println(bst.get(new MyInteger(5)));
+//		System.out.println(bst.get(new MyInteger(9)));
+		bst.inOrder();
+		System.out.println("Depth: "+bst.depth());
 	}
 
 	private static void heapSort() {
