@@ -1,4 +1,6 @@
-import java.util.Arrays;
+package sort;
+
+import common.Comparable;
 
 public class InsertionSort<T> {
 

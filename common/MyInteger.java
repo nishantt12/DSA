@@ -1,3 +1,5 @@
+package common;
+
 public class MyInteger implements Comparable<MyInteger>{
     private final int value;
 

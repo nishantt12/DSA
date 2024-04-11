@@ -1,5 +1,8 @@
-// How to build the Binary heap// Check again
+package sort;// How to build the Binary heap// Check again
 // Rest same as BinaryHeap
+
+import common.Comparable;
+import graph.Graph;
 
 import java.util.Arrays;
 

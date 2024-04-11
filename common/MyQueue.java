@@ -1,4 +1,4 @@
-import java.util.List;
+package common;
 
 public class MyQueue<T> implements MyIterable<T> {
     private static class Node<T> {
@@ -8,6 +8,10 @@ public class MyQueue<T> implements MyIterable<T> {
 
     private Node<T> tail;
     private Node<T> head;
+
+    public boolean isEmpty() {
+        return tail == null;
+    }
 
     public void enqueue(T item) {
         Node<T> newHead = new Node<>();

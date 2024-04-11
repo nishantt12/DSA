@@ -1,5 +1,6 @@
-import java.util.Arrays;
-import java.util.List;
+package sort;
+
+import common.Comparable;
 
 // Implement compareTo
 // Start with the 1st element and find the smallest in the array and swap the element

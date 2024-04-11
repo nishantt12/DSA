@@ -1,4 +1,6 @@
-public class MyStack<T> {
+package common;
+
+public class MyStack<T> implements MyIterable<T> {
 
 	private Node<T> first;
 
@@ -31,5 +33,23 @@ public class MyStack<T> {
 		System.out.println("First: "+first.item);
 	}
 
+	@Override
+	public MyIterator<T> iterator() {
 
+		return new MyIterator<T>() {
+
+			Node<T> current = first;
+            @Override
+            public boolean hasNext() {
+                return current.nextNode!=null;
+            }
+
+            @Override
+            public T next() {
+				T item = current.item;
+				current = current.nextNode;
+                return item;
+            }
+        };
+	}
 }

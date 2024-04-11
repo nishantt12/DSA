@@ -1,14 +1,14 @@
-// Parent is always greater than children
+package sort;// Parent is always greater than children
 // Parent access: k/2, children = 2k and 2k+1
 // sink = When parent is smaller than children
 // swim = When children is larger than parent.
-
-public class BinaryHeap<Key extends Comparable<Key>> {
+import common.Comparable;
+public class MinPQ<Key extends Comparable<Key>> {
     private Key[] keys;
 
     private int N;
 
-    public BinaryHeap(int capacity) {
+    public MinPQ(int capacity) {
         keys = (Key[]) new Comparable[capacity+1];
     }
 
@@ -21,7 +21,7 @@ public class BinaryHeap<Key extends Comparable<Key>> {
         swim(N);
     }
 
-    public Key deleteMax() {
+    public Key deleteMin() {
         Key key = keys[1];
         exchange(1, N--);
         sink(1);
@@ -34,7 +34,7 @@ public class BinaryHeap<Key extends Comparable<Key>> {
     }
 
     private void swim(int k){
-        while (k > 1 && isLess(k/2, k)) {
+        while (k > 1 && isLess(k, k/2)) {
             exchange(k, k/2);
             k = k/2;
         }
@@ -43,10 +43,10 @@ public class BinaryHeap<Key extends Comparable<Key>> {
     private void sink(int k) {
         while (2*k <= N) {
             int j = 2*k;
-            if(j<N && isLess(j, j+1)) {
+            if(j<N && isLess(j+1, j)) {
                 j = j+1;
             }
-            if (isLess(j, k)){
+            if (isLess(k, j)){
                 break;
             }
             exchange(k,j);

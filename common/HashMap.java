@@ -1,3 +1,5 @@
+package common;
+
 public class HashMap<Key, Value> {
 
     private static class Node <Key, Value>{
