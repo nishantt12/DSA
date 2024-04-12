@@ -3,6 +3,7 @@ import common.MyInteger;
 import common.MyIterator;
 import common.MyQueue;
 import graph.*;
+import radix.KeyIndexCounting;
 import sort.*;
 
 import java.util.*;
@@ -10,7 +11,37 @@ import java.util.*;
 public class Main {
 
 	public static void main(String[] args) {
-		dijkstraSP();
+		keyIndexCounting();
+	}
+
+	private static void keyIndexCounting() {
+
+		char array[] = {'b', 'a', 'c', 'a', 'b', 'b', 'c'};
+		print(array);
+		KeyIndexCounting.sort(array);
+		print(array);
+	}
+
+	private static FlowNetwork getFlowNetWork() {
+		FlowNetwork graph = new FlowNetwork(10);
+
+		graph.addEdge(new FlowEdge(50, 0, 1));
+		graph.addEdge(new FlowEdge(50, 1, 2));
+		graph.addEdge(new FlowEdge(50, 1, 4));
+		graph.addEdge(new FlowEdge(10, 2, 4));
+		graph.addEdge(new FlowEdge(20, 3, 4));
+		graph.addEdge(new FlowEdge(70, 0, 3));
+		graph.addEdge(new FlowEdge(10, 6, 7));
+
+		return graph;
+	}
+
+	private static void fordFulkerson() {
+		FordFulkerson fordFulkerson = new FordFulkerson(getFlowNetWork(), 0, 4);
+
+		print(fordFulkerson.getValue());
+		print(fordFulkerson.inCut(4));
+		print(fordFulkerson.inCut(6));
 	}
 
 	private static void dijkstraSP() {
@@ -297,4 +328,21 @@ public class Main {
 	private static void print(int value) {
 		System.out.println(value);
 	}
+
+	private static void print(double value) {
+		System.out.println(value);
+	}
+
+	private static void print(boolean value) {
+		System.out.println(value);
+	}
+
+	private static  <T extends Character> void print(T[] value, T t) {
+		System.out.println(Arrays.toString(value));
+	}
+
+	private static void print(char[] value) {
+		System.out.println(Arrays.toString(value));
+	}
+
 }
