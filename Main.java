@@ -4,6 +4,10 @@ import common.MyIterator;
 import common.MyQueue;
 import graph.*;
 import radix.KeyIndexCounting;
+import radix.LCP;
+import radix.LSD;
+import search.KMP;
+import search.NFA;
 import sort.*;
 
 import java.util.*;
@@ -11,7 +15,37 @@ import java.util.*;
 public class Main {
 
 	public static void main(String[] args) {
-		keyIndexCounting();
+		NFA();
+	}
+
+	private static void NFA() {
+		NFA nfa = new NFA("((A*B|AC)D)");
+		boolean isRecognized = nfa.recognizes1("AAABD");
+		print(isRecognized);
+	}
+
+	private static void KMP() {
+
+		KMP kmp = new KMP("HELLO");
+
+		int textPointer = kmp.search("YELLhhhhWHELLOTELLO");
+
+		print(textPointer);
+	}
+
+	private static void lcp() {
+
+		String first = "ELLO";
+		String second = "HELLOYOYO";
+		print(LCP.lcp(first, second));
+	}
+
+	private static void lsd() {
+
+		String array[] = {"Hello", "AAAAA", "DDDDD", "BBBBB", "CCCCC" ,"11111"};
+		print(array);
+		LSD.sort(array, 5);
+		print(array);
 	}
 
 	private static void keyIndexCounting() {
@@ -337,7 +371,7 @@ public class Main {
 		System.out.println(value);
 	}
 
-	private static  <T extends Character> void print(T[] value, T t) {
+	private static  <T> void print(T[] value) {
 		System.out.println(Arrays.toString(value));
 	}
 

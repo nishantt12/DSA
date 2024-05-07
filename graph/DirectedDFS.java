@@ -2,10 +2,12 @@ package graph;
 
 import common.MyStack;
 
+import java.util.ArrayList;
+
 public class DirectedDFS<T> {
 
-    T[] arr;
-    private boolean marked[];
+//    T[] arr;
+    public boolean marked[];
     private boolean recursionStack[];
     private int edgeTo[];
 
@@ -13,7 +15,20 @@ public class DirectedDFS<T> {
 
     public DirectedDFS(DiGraph G, int source) {
         s = source;
-        arr = (T[]) new Object[10];
+        int length = G.getV().length;
+        marked = new boolean[length];
+        recursionStack = new boolean[length];
+        edgeTo = new int[length];
+        for (int i =0; i<length; i++){
+            if(!marked[i]){
+                dfs(G, i);
+            }
+
+        }
+
+    }
+
+    public DirectedDFS(DiGraph G, ArrayList<Integer> sources) {
         int length = G.getV().length;
         marked = new boolean[length];
         recursionStack = new boolean[length];
@@ -43,6 +58,10 @@ public class DirectedDFS<T> {
     }
 
     public boolean hasPathTo(int v) {
+        return marked[v];
+    }
+
+    public boolean marked(int v) {
         return marked[v];
     }
 
