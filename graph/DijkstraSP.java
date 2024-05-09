@@ -23,7 +23,6 @@ public class DijkstraSP {
 
         distTo[source] = 0.0;
         indexedMinPQ.insert(source, 0.0);
-
         path(graph);
     }
 
